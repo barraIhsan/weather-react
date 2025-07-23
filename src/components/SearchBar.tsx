@@ -44,11 +44,11 @@ export default function SearchBar({ onSearchChange }: SearchBarProps) {
   };
 
   return (
-    <div className="flex justify-between gap-12">
+    <div className="flex justify-between gap-5">
       <p
         className={twMerge(
-          "inline-flex gap-5 items-center text-xl sm:text-4xl xl:text-5xl font-bold",
-          searchOpen && "hidden lg:inline",
+          "inline-flex gap-2 sm:gap-5 items-center text-xl sm:text-4xl font-bold",
+          searchOpen && "hidden lg:inline-flex",
         )}
       >
         <MapPin className="size-[.9em]" />
