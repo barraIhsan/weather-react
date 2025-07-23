@@ -1,4 +1,4 @@
-import { Search } from "lucide-react";
+import { MapPin, Search } from "lucide-react";
 import { twMerge } from "tailwind-merge";
 import { useState } from "react";
 import { AsyncPaginate } from "react-select-async-paginate";
@@ -47,10 +47,11 @@ export default function SearchBar({ onSearchChange }: SearchBarProps) {
     <div className="flex justify-between gap-12">
       <p
         className={twMerge(
-          "text-xl sm:text-4xl xl:text-5xl font-bold",
+          "inline-flex gap-5 items-center text-xl sm:text-4xl xl:text-5xl font-bold",
           searchOpen && "hidden lg:inline",
         )}
       >
+        <MapPin className="size-[.9em]" />
         {currentCity}
       </p>
       <label
