@@ -5,14 +5,15 @@ import { AsyncPaginate } from "react-select-async-paginate";
 import { geoApiOptions, geoApiUrl } from "../api";
 import type { Option, City, SearchBarProps } from "../types.ts";
 
-export default function SearchBar({ onSearchChange }: SearchBarProps) {
+export default function SearchBar({
+  onSearchChange,
+  currentCity,
+}: SearchBarProps) {
   const [searchOpen, setSearchOpen] = useState<boolean>(false);
-  const [currentCity, setCurrentCity] = useState<string>("Jakarta, ID");
 
   const changeCity = (searchData: Option | null) => {
     if (!searchData) return;
     onSearchChange(searchData);
-    setCurrentCity(searchData.label);
     setSearchOpen(false);
   };
 
@@ -22,9 +23,7 @@ export default function SearchBar({ onSearchChange }: SearchBarProps) {
         `${geoApiUrl}?minPopulation=1000&namePrefix=${inputValue}`,
         geoApiOptions,
       );
-      console.log(res);
       const cities: { data: City[] } = await res.json();
-      console.log(cities);
       return {
         options: cities.data.map((city, _, arr) => {
           const count = arr.filter((c) => c.name == city.name).length;
@@ -38,7 +37,7 @@ export default function SearchBar({ onSearchChange }: SearchBarProps) {
         }),
       };
     } catch (err) {
-      console.log(err);
+      console.log("Failed to get city location: ", err);
       return { options: [] };
     }
   };

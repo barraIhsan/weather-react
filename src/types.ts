@@ -8,9 +8,10 @@ export interface City {
 
 export interface Option {
   value: string;
-  label: string;
+  label?: string;
 }
 
 export interface SearchBarProps {
   onSearchChange: (selected: Option | null) => void;
+  currentCity: string;
 }
