@@ -59,6 +59,9 @@ export default function App() {
         },
         (err) => {
           console.log("Failed fetching current user location:", err);
+          if (err.PERMISSION_DENIED) {
+            setCurrentCity("Enter your city");
+          }
         },
         { enableHighAccuracy: false, timeout: 5000, maximumAge: Infinity },
       );
