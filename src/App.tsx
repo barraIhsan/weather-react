@@ -63,7 +63,6 @@ export default function App() {
             setCurrentCity("Enter your city");
           }
         },
-        { enableHighAccuracy: false, timeout: 5000, maximumAge: Infinity },
       );
     }
   }, [weather, forecast]);
