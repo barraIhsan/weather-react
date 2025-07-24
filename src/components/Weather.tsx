@@ -1,14 +1,29 @@
 export default function Weather({ data }) {
+  const mapIcon = {
+    "01": "sunny.svg",
+    "02": "partly_cloudy.svg",
+    "03": "cloudy.svg",
+    "04": "cloudy.svg",
+    "09": "rainy.svg",
+    "10": "rainy.svg",
+    "11": "thunder.svg",
+    "13": "snowy.svg",
+    "50": "foggy.svg",
+  };
+
   return (
     <div className="mt-8 sm:mt-12">
       <p className="font-bold text-lg sm:text-2xl">Now</p>
       <div className="flex justify-between items-center">
-        <div className="flex text-5xl sm:text-8xl">
+        <div className="flex items-center gap-3 text-5xl sm:text-8xl">
           <p className="font-bold">{Math.floor(data.main.temp)}&deg;</p>
           <img
-            src={`https://openweathermap.org/img/wn/${data.weather[0].icon}@4x.png`}
+            src={
+              "/icons/" +
+              mapIcon[data.weather[0].icon.slice(0, -1) as keyof typeof mapIcon]
+            }
             alt={data.weather[0].main}
-            className="size-[1em]"
+            className="size-[.8em]"
           />
         </div>
         <div className="text-right">
