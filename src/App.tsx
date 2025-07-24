@@ -75,7 +75,7 @@ export default function App() {
         currentCity={currentCity}
       />
       {weather && <Weather data={weather} />}
-      {forecast && <Forecast data={forecast} />}
+      {forecast && <Forecast />}
     </main>
   );
 }

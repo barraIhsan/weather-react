@@ -1,4 +1,6 @@
-export default function Weather({ data }) {
+import type { Weather } from "../types";
+
+export default function Weather({ data }: Weather) {
   const mapIcon = {
     "01": "sunny.svg",
     "02": "partly_cloudy.svg",

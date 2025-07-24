@@ -1,3 +1,3 @@
-export default function Forecast({ data }) {
+export default function Forecast() {
   return <div></div>;
 }
