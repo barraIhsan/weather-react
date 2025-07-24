@@ -41,7 +41,7 @@ export default function App() {
         setCurrentCity(`${weather.name}, ${weather.sys.country}`);
       }
     } catch (err) {
-      console.log(err);
+      console.log("Failed to get weather data:", err);
     }
   };
 
@@ -51,8 +51,6 @@ export default function App() {
       navigator.geolocation.getCurrentPosition(
         (pos) => {
           const { latitude, longitude } = pos.coords;
-          console.log(pos.coords);
-
           handleOnSearchChange({
             value: `${latitude} ${longitude}`,
           });
