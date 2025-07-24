@@ -64,7 +64,7 @@ export default function SearchBar({
           placeholder="Insert your city name"
           autoFocus
           className={twMerge(
-            "outline-none w-full lg:w-80",
+            "outline-none w-full lg:w-80 text-black",
             !searchOpen && "hidden",
           )}
           onChange={changeCity}
