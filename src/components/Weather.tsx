@@ -1,18 +1,7 @@
+import { weatherImg } from "../helper";
 import type { Weather } from "../types";
 
 export default function Weather({ data }: Weather) {
-  const mapIcon = {
-    "01": "sunny.svg",
-    "02": "partly_cloudy.svg",
-    "03": "cloudy.svg",
-    "04": "cloudy.svg",
-    "09": "rainy.svg",
-    "10": "rainy.svg",
-    "11": "thunder.svg",
-    "13": "snowy.svg",
-    "50": "foggy.svg",
-  };
-
   return (
     <div className="mt-8 sm:mt-12">
       <p className="font-bold text-lg sm:text-2xl">Now</p>
@@ -20,10 +9,7 @@ export default function Weather({ data }: Weather) {
         <div className="flex items-center gap-3 text-5xl sm:text-8xl">
           <p className="font-bold">{Math.floor(data.main.temp)}&deg;</p>
           <img
-            src={
-              "/icons/" +
-              mapIcon[data.weather[0].icon.slice(0, -1) as keyof typeof mapIcon]
-            }
+            src={"/icons/" + weatherImg(data.weather[0].icon)}
             alt={data.weather[0].main}
             className="size-[.8em]"
           />
