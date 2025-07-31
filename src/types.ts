@@ -31,3 +31,21 @@ export interface Weather {
     }[];
   };
 }
+
+export interface Forecast {
+  data: {
+    list: {
+      dt: number;
+      dt_txt: string;
+      main: {
+        temp: number;
+        feels_like: number;
+      };
+      weather: {
+        main: string;
+        description: string;
+        icon: string;
+      }[];
+    }[];
+  };
+}
